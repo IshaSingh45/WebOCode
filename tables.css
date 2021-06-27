@@ -1,0 +1,84 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-image:url("https://source.unsplash.com/720x600/?furniture");
+    background-size: cover;
+}
+.bgimg{
+  background-color:white;
+}
+
+
+.maincontainer
+{
+   border: 3px solid black;
+   padding:2em;
+    width: 302px;
+    height: 299px;
+    margin: 12px;
+    float: left; /* stack each div horizontally */
+}
+
+img
+{
+   border-radius: 10px;
+}
+
+.back h2
+{
+    position: absolute;
+}
+
+.back p
+{
+    position: absolute;
+    top: 50px;
+    font-size: 15px;
+}
+
+.front h2
+{
+    position: absolute;
+    padding: 10px;
+    top: 200px;
+    color: #000;
+}
+
+/* style the maincontainer class with all child div's of class .front */
+.maincontainer > .front
+{
+    position: absolute;
+    transform: perspective(600px) rotateY(0deg);
+
+    width: 302px;
+    height: 290px;
+
+    backface-visibility: hidden; /* cant see the backside elements as theyre turning around */
+    transition: transform .5s linear 0s;
+}
+
+/* style the maincontainer class with all child div's of class .back */
+.maincontainer > .back
+{
+    position: absolute;
+    transform: perspective(600px) rotateY(180deg);
+    background: #262626;
+    color: #fff;
+    width: 302px;
+    height: 290px;
+    border-radius: 10px;
+    padding: 5px;
+    backface-visibility: hidden; /* cant see the backside elements as theyre turning around */
+    transition: transform .5s linear 0s;
+}
+
+.maincontainer:hover > .front
+{
+    transform: perspective(600px) rotateY(-180deg);
+}
+
+.maincontainer:hover > .back
+{
+    transform: perspective(600px) rotateY(0deg);
+}
